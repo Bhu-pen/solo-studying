@@ -1,0 +1,258 @@
+/* Progress Dashboard */
+.progress-dashboard {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.subject-progress {
+    margin: 15px 0;
+}
+
+.progress-bar {
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+    transition: width 0.3s ease;
+}
+
+/* Pomodoro Timer */
+.pomodoro-container {
+    text-align: center;
+    padding: 20px;
+    background: var(--card-background);
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.timer-display {
+    font-size: 3em;
+    font-family: 'Orbitron', monospace;
+    margin: 20px 0;
+    color: var(--primary-color);
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.timer-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timer-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* Note Taking System */
+.note-container {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.note-editor {
+    width: 100%;
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--text-color);
+    font-family: inherit;
+    resize: vertical;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.tag {
+    background: var(--primary-color);
+    color: var(--background-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+/* Formula Sheet */
+.formula-sheet {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.formula-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.formula-name {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.formula-expression {
+    font-family: 'Cambria Math', serif;
+    font-size: 1.2em;
+}
+
+/* Citation Generator */
+.citation-form {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.citation-result {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    font-family: 'Times New Roman', serif;
+}
+
+/* Accessibility Styles */
+/* High Contrast Theme */
+.high-contrast {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --primary-color: #ffff00;
+    --primary-hover: #ffff40;
+    --card-background: #1a1a1a;
+}
+
+/* Dyslexic Font */
+.dyslexic-font {
+    font-family: 'OpenDyslexic', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+}
+
+/* Font Size Controls */
+.font-size-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 1000;
+}
+
+.font-size-btn {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+/* Keyboard Navigation */
+*:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Analytics Charts */
+.chart-container {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.chart-title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Progress Report */
+.progress-report {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.report-section {
+    margin: 15px 0;
+}
+
+.report-header {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timer-display {
+        font-size: 2em;
+    }
+    
+    .font-size-controls {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.timer-ending {
+    animation: pulse 1s infinite;
+    color: #ff0000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.notification {
+    animation: slideIn 0.3s ease-out;
+} 

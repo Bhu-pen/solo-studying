@@ -1,0 +1,210 @@
+s<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tools</title>
+    <link rel="stylesheet" href="study_tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Dashboard -->
+    <div class="progress-dashboard">
+        <h2>Study Progress</h2>
+        <div id="subject-progress-container">
+            <!-- Subject progress bars will be generated here -->
+        </div>
+        <div class="chart-container">
+            <h3 class="chart-title">Weekly Progress</h3>
+            <canvas id="weeklyProgressChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Pomodoro Timer -->
+    <div class="pomodoro-container">
+        <h2>Study Timer</h2>
+        <div class="timer-display" id="pomodoro-timer">25:00</div>
+        <div class="timer-controls">
+            <button class="timer-button" onclick="studyTools.pomodoroTimer.startTimer('study')">Start</button>
+            <button class="timer-button" onclick="studyTools.pomodoroTimer.pauseTimer()">Pause</button>
+            <button class="timer-button" onclick="studyTools.pomodoroTimer.resetTimer()">Reset</button>
+        </div>
+        <div class="timer-settings">
+            <label>Study Duration: 
+                <input type="number" id="studyDuration" value="25" min="1" max="60">
+            </label>
+            <label>Break Duration: 
+                <input type="number" id="breakDuration" value="5" min="1" max="30">
+            </label>
+        </div>
+    </div>
+
+    <!-- Note Taking System -->
+    <div class="note-container">
+        <h2>Study Notes</h2>
+        <div class="note-controls">
+            <select id="noteSubject">
+                <option value="">Select Subject</option>
+                <!-- Subjects will be populated dynamically -->
+            </select>
+            <input type="text" id="noteTags" placeholder="Add tags (comma separated)">
+        </div>
+        <textarea class="note-editor" id="noteEditor" placeholder="Start taking notes..."></textarea>
+        <div class="tag-container" id="tagContainer">
+            <!-- Tags will be displayed here -->
+        </div>
+        <button class="save-note-btn" onclick="studyTools.noteSystem.addNote()">Save Note</button>
+        <div class="notes-list" id="notesList">
+            <!-- Saved notes will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Formula Sheet -->
+    <div class="formula-sheet">
+        <h2>Formula Sheet</h2>
+        <div class="formula-controls">
+            <select id="formulaSubject">
+                <option value="">Select Subject</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="physics">Physics</option>
+            </select>
+            <select id="formulaTopic">
+                <option value="">Select Topic</option>
+                <!-- Topics will be populated based on subject -->
+            </select>
+        </div>
+        <div id="formulaContainer">
+            <!-- Formulas will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Citation Generator -->
+    <div class="citation-form">
+        <h2>Citation Generator</h2>
+        <select id="citationType">
+            <option value="book">Book</option>
+            <option value="website">Website</option>
+            <option value="journal">Journal</option>
+        </select>
+        <div id="citationFields">
+            <!-- Citation fields will be generated based on type -->
+        </div>
+        <button onclick="studyTools.citationGenerator.generateCitation()">Generate Citation</button>
+        <div class="citation-result" id="citationResult">
+            <!-- Generated citation will appear here -->
+        </div>
+    </div>
+
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls">
+        <h2>Accessibility Settings</h2>
+        <div class="setting-group">
+            <label>
+                <input type="checkbox" id="highContrast" onchange="studyTools.accessibilityManager.toggleHighContrast()">
+                High Contrast Mode
+            </label>
+        </div>
+        <div class="setting-group">
+            <label>
+                <input type="checkbox" id="dyslexicFont" onchange="studyTools.accessibilityManager.toggleDyslexicFont()">
+                Dyslexic-friendly Font
+            </label>
+        </div>
+        <div class="setting-group">
+            <label>
+                <input type="checkbox" id="textToSpeech" onchange="studyTools.accessibilityManager.toggleTextToSpeech()">
+                Text-to-Speech
+            </label>
+        </div>
+        <div class="font-size-controls">
+            <button class="font-size-btn" onclick="studyTools.accessibilityManager.setFontSize('small')">A-</button>
+            <button class="font-size-btn" onclick="studyTools.accessibilityManager.setFontSize('medium')">A</button>
+            <button class="font-size-btn" onclick="studyTools.accessibilityManager.setFontSize('large')">A+</button>
+        </div>
+    </div>
+
+    <!-- Progress Report -->
+    <div class="progress-report">
+        <h2>Study Report</h2>
+        <div class="report-controls">
+            <select id="reportTimeframe">
+                <option value="weekly">Weekly Report</option>
+                <option value="monthly">Monthly Report</option>
+            </select>
+            <button onclick="generateReport()">Generate Report</button>
+        </div>
+        <div id="reportContainer">
+            <!-- Report content will be generated here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="study_tools.js"></script>
+    <script>
+        // Initialize study tools when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Request notification permission for Pomodoro timer
+            if (Notification.permission !== 'granted') {
+                Notification.requestPermission();
+            }
+
+            // Initialize charts
+            initializeCharts();
+
+            // Load user data and update displays
+            updateAllDisplays();
+        });
+
+        function initializeCharts() {
+            const ctx = document.getElementById('weeklyProgressChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Study Hours',
+                        data: [0, 0, 0, 0, 0, 0, 0],
+                        borderColor: 'rgb(0, 255, 136)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateAllDisplays() {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            if (userData) {
+                updateProgressBars(userData);
+                updateCharts(userData);
+                populateSubjects(userData.subjects);
+            }
+        }
+
+        function generateReport() {
+            const timeframe = document.getElementById('reportTimeframe').value;
+            const report = studyTools.progressTracker.generateReport(timeframe);
+            displayReport(report);
+        }
+
+        function displayReport(report) {
+            const container = document.getElementById('reportContainer');
+            container.innerHTML = `
+                <div class="report-section">
+                    <h3 class="report-header">${report.timeframe.charAt(0).toUpperCase() + report.timeframe.slice(1)} Report</h3>
+                    <p>Generated on: ${new Date(report.generatedAt).toLocaleDateString()}</p>
+                    <!-- Add more report details here -->
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html> 
