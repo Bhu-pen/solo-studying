@@ -1,4 +1,4 @@
-// User Profile and Authentication
+
 document.addEventListener("DOMContentLoaded", function () {
     const userData = JSON.parse(localStorage.getItem('userData'));
     
