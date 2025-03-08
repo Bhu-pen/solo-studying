@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Quest - Your Learning Adventure</title>
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="challenges.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <ul class="checkbox">
+      <li> <input type="checkbox" id="drop">
+        <label for="drop" class="button">
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </label>
+        <div class="dropdown">
+          <ul id="subject-list">
+            <!-- Subjects will be populated dynamically -->
+             <li>1</li>
+             <li>2</li>
+             <li>3</li>
+          </ul>
+        </div>
+      </li>
+      <div class="topbarout">
+        <li><a href="#" class="nav-link" data-section="routine">Routine</a></li>
+        <li><a href="#" class="nav-link" data-section="quests">Quests</a></li>
+        <li><a href="#" class="nav-link" data-section="achievements">Achievements</a></li>
+        <li><a href="#" class="nav-link" data-section="leaderboard">Leaderboard</a></li>
+        <li><a href="#" class="nav-link" data-section="settings">Settings</a></li>
+        <li><a><label class="switch">
+              <input checked="true" id="theme-toggle" type="checkbox" />
+              <span class="slider">
+              
+              </span>
+            </label></a></li>
+            <li><button id="logout">Logout</button></li>
+      </div>
+    </ul>
+  </div>
+  <div class="main-container">
+    <!-- Left Sidebar - Profile and Rank -->
+    <div class="sidebar">
+      <div class="profile-section">
+        <div class="avatar-container">
+          <img id="user-avatar" src="theme/avatars/default.png" alt="User Avatar">
+          <div class="level-badge">
+            <span id="level-number">1</span>
+          </div>
+        </div>
+        <div class="player-info">
+          <h2 id="username-display">Hi, User</h2>
+          <div class="experience-container">
+            <div class="experience-bar">
+              <div id="experience-fill"></div>
+            </div>
+            <div class="experience-text">
+              <span id="experience">0</span> / <span id="next-level">100</span> XP
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rank-section">
+        <h3>Your Rank</h3>
+        <div class="rank-display">
+          <img id="rank-image" src="theme/ranks/novice.png" alt="Rank">
+          <p id="rank-name">Novice</p>
+        </div>
+        <div class="rank-progress">
+          <div class="progress-bar">
+            <div id="rank-progress-fill"></div>
+          </div>
+          <p>Progress to next rank: <span id="rank-progress-text">0%</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-area">
+      <!-- Daily Challenges Section -->
+      <div class="challenges-section">
+        <h2>Daily Challenges</h2>
+        <div id="challenges-container">
+          <!-- Challenges will be populated here -->
+        </div>
+      </div>
+
+      <!-- Subject Progress Section -->
+      <div class="progress-section">
+        <h2>Subject Progress</h2>
+        <div id="progress-container">
+          <!-- Subject progress will be populated here -->
+        </div>
+      </div>
+
+      <!-- Special Challenges Section -->
+      <div class="special-challenges">
+        <h2>Special Challenges</h2>
+        <div id="special-challenges-container">
+          <!-- Special challenges will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar - Achievements and Leaderboard -->
+    <div class="sidebar">
+      <div class="achievements-panel">
+        <h2>Recent Achievements</h2>
+        <div id="achievements-container">
+          <!-- Achievements will be populated here -->
+        </div>
+      </div>
+
+      <div class="leaderboard-panel">
+        <h2>Top Students</h2>
+        <div id="leaderboard-container">
+          <!-- Leaderboard will be populated here -->
+        </div>
+  </div>
+  </div>
+  </div>
+</body>
+<script src="script.js"></script>
+<script src="challenges.js"></script>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Study Quest</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="registrationbox">
+        <h2>Join the Study Quest</h2>
+        <form id="register-form">
+            <div class="avatar-selection">
+                <label>Choose Your Avatar:</label>
+                <div class="avatar-grid">
+                    <div class="avatar-option" data-avatar="avatar1.jpg">
+                        <img src="avatar1.jpg" alt="Avatar 1">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar2.jpg">
+                        <img src="avatar2.jpg" alt="Avatar 2">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar3.jpg">
+                        <img src="avatar3.jpg" alt="Avatar 3">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar4.jpg">
+                        <img src="avatar4.jpg" alt="Avatar 4">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar5.jpg">
+                        <img src="avatar5.jpg" alt="Avatar 5">
+                    </div>
+
+                    <div class="avatar-option" data-avatar="avatar6.jpg">
+                        <img src="avatar6.jpg" alt="Avatar 6">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar7.jpg">
+                        <img src="avatar7.jpg" alt="Avatar 7">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar8.jpg">
+                        <img src="avatar8.jpg" alt="Avatar 8">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar9.jpg">
+                        <img src="avatar9.jpg" alt="Avatar 9">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar9.jpg">
+                        <img src="avatar9.jpg" alt="Avatar 9">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar10.jpg">
+                        <img src="avatar10.jpg" alt="Avatar 10">
+                    </div>
+
+                    <div class="avatar-option" data-avatar="avatar11.jpg">
+                        <img src="avatar11.jpg" alt="Avatar 11">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar12.jpg">
+                        <img src="avatar12.jpg" alt="Avatar 12">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar13.jpg">
+                        <img src="avatar13.jpg" alt="Avatar 13">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar14.jpg">
+                        <img src="avatar14.jpg" alt="Avatar 14">
+                    </div>
+                    <div class="avatar-option" data-avatar="avatar15.jpg">
+                        <img src="avatar15.jpg" alt="Avatar 15">
+                    </div>
+                </div>
+                <input type="hidden" id="selected-avatar" name="avatar" required>
+            </div>
+            <div class="input">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your quest name" required>
+            </div>
+            <div class="input">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="education-level">Education Level:</label>
+                <select id="education-level" name="education-level" required>
+                    <option value="">Select your class</option>
+                    <option value="5">Class 5</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                    <option value="10">Class 10</option>
+                    <option value="11">Class 11</option>
+                    <option value="12">Class 12</option>
+                </select>
+            </div>
+            <div class="input">
+                <label for="subjects">Main Subjects:</label>
+                <select id="subjects" name="subjects" multiple required>
+                    <option value="mathematics">Mathematics</option>
+                    <option value="physics">Physics</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="biology">Biology</option>
+                    <option value="computer-science">Computer Science</option>
+                    <option value="literature">Literature</option>
+                    <option value="history">History</option>
+                </select>
+            </div>
+            <div class="input">
+                <label for="study-goals">Daily Study Goal (hours):</label>
+                <input type="number" id="study-goals" name="study-goals" min="1" max="12" required>
+            </div>
+            <div class="input">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            <div class="input">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+            </div>
+            <div class="button-group">
+                <button class="login" type="submit">Begin Your Quest</button>
+                <button class="cancel" type="reset">Reset</button>
+            </div>
+        </form>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        <p>Already a Quest Member? <a href="log.html">Login here</a></p>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+.challenge-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.challenge-card h2 {
+    color: #00ff88;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.challenge-details {
+    color: #fff;
+    margin: 15px 0;
+}
+
+.challenge-details h3 {
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+.challenge-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.challenge-details li {
+    margin: 5px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.challenge-details li:before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    color: #00ff88;
+}
+
+.complete-btn {
+    background: #00ff88;
+    color: #1a1a2e;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.complete-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.level-up-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 255, 136, 0.9);
+    color: #1a1a2e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+    animation: slideIn 0.5s ease-out;
+    z-index: 1000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.level-up-notification h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+}
+
+.level-up-notification p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* Experience Bar Styles */
+.experience-bar {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+.experience-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00cc6a);
+    transition: width 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+}
+
+.experience-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.1) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 20px 20px;
+    animation: moveStripes 1s linear infinite;
+}
+
+@keyframes moveStripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 20px 0;
+    }
+} 
